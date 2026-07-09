@@ -1,276 +1,216 @@
-:root {
-  --bg: #0d1420;
-  --panel: #131c2b;
-  --text: #e8e6df;
-  --muted: #9aa3b2;
-  --accent: #d9a441;
-  --glow: #7fd1c0;
+/* ============================================================
+   AENIGMA PRESS - design "Galleria" (lug 2026)
+   ============================================================ */
+:root{
+  /* color */
+  --bg:#0c1119;            /* night-blue ground        */
+  --panel:#131c2b;         /* raised panel             */
+  --panel-2:#111a28;       /* panel gradient partner   */
+  --ink:#e8e6df;           /* warm ivory, primary text */
+  --ink-soft:rgba(232,230,223,.72);
+  --ink-mute:rgba(232,230,223,.60);
+  --gold:#d9a441;          /* the single lead accent   */
+  --gold-hi:#e6b658;       /* gold, hover              */
+  --gold-line:rgba(217,164,65,.42);
+  --gold-line-soft:rgba(217,164,65,.28);
+  --glow:#7fd1c0;          /* teal, glow / texture ONLY, never text */
+  --hair:rgba(232,230,223,.10);
+
+  /* spacing scale */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+
+  /* type */
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,Menlo,"SF Mono",Consolas,monospace;
+  --t-label:11px;   /* mono, letterspaced eyebrow */
+  --t-micro:12.5px; /* footer / fine print        */
+  --t-small:13px;   /* supporting body            */
+  --t-body:15px;    /* body / inputs              */
+  --t-h3:19px;      /* book title                 */
+  --t-h2:24px;      /* section head (mobile)      */
+  --t-h1:30px;      /* hero card head (mobile)    */
+  --t-tag:17px;     /* italic serif tagline       */
+
+  --maxw:1120px;
+  --radius:8px;
 }
 
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:var(--t-body);line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img{display:block;max-width:100%}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-hi)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s5)}
+
+/* ---------- header ---------- */
+.site-head{display:flex;align-items:center;justify-content:space-between;
+  padding:var(--s5) var(--s5) var(--s4)}
+.brand img{height:22px;width:auto}
+.nav{display:none}
+.head-lang{font:400 13px var(--sans);color:var(--ink-mute)}
+.head-lang:hover{color:var(--ink)}
+.head-rule{height:1px;margin:0 auto;
+  background:linear-gradient(90deg,transparent,var(--gold-line),transparent)}
+
+/* ---------- lede (hero + newsletter) ---------- */
+.lede{
+  position:relative;padding:var(--s6) 0 var(--s7);
+  background:
+    linear-gradient(rgba(127,209,192,.045) 1px,transparent 1px) 0 0/22px 22px,
+    linear-gradient(90deg,rgba(127,209,192,.045) 1px,transparent 1px) 0 0/22px 22px;
+}
+.eyebrow{margin:0;font:400 var(--t-label)/1 var(--mono);
+  letter-spacing:2.5px;color:var(--gold);text-transform:uppercase}
+
+.hero{text-align:center}
+.hero .eyebrow{margin-bottom:var(--s5)}
+.shelf-wrap{position:relative;max-width:280px;margin:0 auto}
+.shelf-wrap::after{content:"";position:absolute;inset:14% 8% 20% 8%;z-index:-1;
+  background:radial-gradient(ellipse at center,rgba(127,209,192,.14),transparent 68%);
+  filter:blur(6px)}
+.tagline{margin:var(--s5) auto 0;max-width:22ch;
+  font:italic 400 var(--t-tag)/1.5 var(--serif);color:var(--ink)}
+
+/* newsletter card, primary CTA */
+.card{margin-top:var(--s7);
+  border:1px solid var(--gold-line);border-radius:var(--radius);
+  padding:var(--s7) var(--s5);text-align:center;
+  background:linear-gradient(var(--panel),var(--panel-2));
+  box-shadow:0 0 0 1px rgba(127,209,192,.05),0 24px 50px -30px rgba(0,0,0,.8)}
+.card .eyebrow{margin-bottom:var(--s4)}
+.card h2{margin:0 0 var(--s3);font:400 var(--t-h1)/1.25 var(--serif);color:var(--ink)}
+.card p{margin:0 auto var(--s5);max-width:34ch;
+  font-size:var(--t-small);color:var(--ink-soft)}
+.form{display:flex;flex-direction:column;gap:var(--s3);max-width:340px;margin:0 auto}
+.field{width:100%;background:var(--bg);border:1px solid rgba(232,230,223,.20);
+  color:var(--ink);font:400 var(--t-body) var(--sans);
+  padding:14px;border-radius:var(--radius);min-height:50px;text-align:center}
+.field::placeholder{color:rgba(232,230,223,.4)}
+.field:focus{border-color:var(--gold);
+  box-shadow:0 0 0 2px rgba(217,164,65,.55);outline:none}
+.btn-primary{width:100%;background:var(--gold);color:var(--bg);border:none;
+  font:600 var(--t-body) var(--sans);padding:14px;border-radius:var(--radius);
+  min-height:50px;cursor:pointer;transition:background .18s,box-shadow .18s}
+.btn-primary:hover{background:var(--gold-hi);
+  box-shadow:0 0 22px rgba(127,209,192,.32)}
+.fine{margin:var(--s4) auto 0;max-width:36ch;
+  font-size:var(--t-micro);color:var(--ink-mute)}
+
+/* ---------- catalogue ---------- */
+.catalogue{padding:var(--s8) 0}
+.cat-head{text-align:center;margin-bottom:var(--s7)}
+.cat-head h2{margin:var(--s3) 0 0;font:400 var(--t-h2)/1.2 var(--serif)}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;
+  gap:var(--s6) var(--s5);align-items:start}
+
+.book{display:flex;flex-direction:column;text-align:center}
+.cover{width:100%;height:auto;aspect-ratio:8.5/11;object-fit:cover;
+  border:1px solid var(--gold-line);border-radius:2px;
+  box-shadow:0 14px 30px -14px rgba(0,0,0,.75)}
+.book h3{margin:var(--s4) 0 var(--s1);font:400 var(--t-h3)/1.25 var(--serif);color:var(--ink)}
+.book .desc{margin:0 0 var(--s4);font-size:var(--t-small);color:var(--ink-soft);
+  min-height:2.7em}
+.btn-ghost{display:block;text-align:center;border:1px solid var(--gold-line);
+  color:var(--gold);background:transparent;font:600 var(--t-small) var(--sans);
+  padding:11px;border-radius:var(--radius);min-height:44px;
+  transition:background .18s,border-color .18s}
+.btn-ghost:hover{background:rgba(217,164,65,.12);border-color:var(--gold);color:var(--gold-hi)}
+
+/* Volume III, empty slot (full-width row on mobile) */
+.book--soon{grid-column:1 / -1;flex-direction:row;align-items:center;
+  gap:var(--s5);text-align:left;
+  border-top:1px solid var(--hair);padding-top:var(--s6);margin-top:var(--s2)}
+.cover--empty{width:88px;flex:none;aspect-ratio:8.5/11;
+  border:1px dashed var(--gold-line);border-radius:2px;background:none;box-shadow:none;
+  display:flex;align-items:center;justify-content:center}
+.cover--empty b{font:400 22px/1 var(--serif);color:rgba(217,164,65,.55)}
+.book--soon .soon-body{flex:1}
+.book--soon h3{margin:0 0 var(--s1)}
+.soon-line{margin:0;font-size:var(--t-small);color:var(--ink-soft)}
+.soon-line a{color:var(--gold);border-bottom:1px solid var(--gold-line);padding-bottom:1px}
+.soon-line a:hover{border-color:var(--gold-hi)}
+
+/* ---------- footer ---------- */
+.site-foot{border-top:1px solid var(--hair);padding:var(--s6) var(--s5) var(--s7);
+  display:flex;flex-direction:column;gap:var(--s3);align-items:center;text-align:center}
+.foot-mail{font-size:var(--t-micro);color:var(--ink-soft)}
+.foot-links{display:flex;gap:var(--s4);align-items:center;
+  font-size:var(--t-micro);color:var(--ink-mute)}
+.foot-links a{color:var(--ink-mute)}
+.foot-links a:hover{color:var(--ink)}
+.foot-links .sep{opacity:.35}
+.lang a{color:var(--ink-mute)}
+.lang a[aria-current="true"]{color:var(--gold);font-weight:600}
+
+/* ---------- simple pages (privacy, 404) ---------- */
+.simple-page{max-width:620px;padding:var(--s8) var(--s5)}
+.simple-page h1{font:400 var(--t-h2)/1.25 var(--serif);color:var(--ink);
+  margin:0 0 var(--s5)}
+.simple-page p{color:var(--ink-soft);font-size:var(--t-body)}
+.back{display:inline-block;margin-top:var(--s5);border:1px solid var(--gold-line);
+  color:var(--gold);padding:10px 18px;border-radius:var(--radius);
+  font:600 var(--t-small) var(--sans)}
+.back:hover{background:rgba(217,164,65,.12);border-color:var(--gold)}
+
+/* ============================================================
+   DESKTOP  (>= 880px)
+   ============================================================ */
+@media (min-width:880px){
+  :root{--t-h1:34px;--t-h2:30px;--t-tag:22px}
+  .site-head{padding:var(--s6) var(--s7) var(--s5)}
+  .brand img{height:26px}
+  .nav{display:flex;gap:var(--s6);font:400 14px var(--sans);align-items:center}
+  .nav a{color:var(--ink-soft)}
+  .nav a:hover{color:var(--ink)}
+  .head-rule{margin:0 var(--s7)}
+
+  .lede{padding:var(--s9) 0}
+  .lede .wrap{display:grid;grid-template-columns:1.02fr .98fr;
+    gap:var(--s9);align-items:center}
+  .hero{text-align:left}
+  .shelf-wrap{max-width:440px;margin:0}
+  .tagline{margin-left:0;max-width:20ch;font-size:var(--t-tag)}
+  .card{margin-top:0}
+
+  .cat-grid{grid-template-columns:repeat(3,1fr);gap:var(--s7)}
+  .book--soon{grid-column:auto;flex-direction:column;align-items:stretch;
+    text-align:center;border-top:none;padding-top:0;margin-top:0;justify-content:flex-start}
+  .book--soon .cover--empty{width:100%}
+  .cover--empty b{font-size:34px}
+  .book--soon .soon-body{flex:none}
+  .book--soon h3{margin-top:var(--s4)}
+
+  .site-foot{flex-direction:row;justify-content:space-between;
+    padding:var(--s6) var(--s7)}
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+/* ============================================================
+   SELF-BUILDING BOOKCASE, draws once at load (~2s), then static
+   ============================================================ */
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes rise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.shelf{display:block;color:var(--gold);overflow:visible}
+.shelf .frame{stroke-dasharray:1140;stroke-dashoffset:1140;
+  animation:draw .85s ease-out 0s forwards}
+.shelf .plank{stroke-dasharray:324;stroke-dashoffset:324;
+  animation:draw .5s ease-out forwards}
+.shelf .p1{animation-delay:.55s}
+.shelf .p2{animation-delay:.7s}
+.shelf .r1{opacity:0;animation:rise .5s ease-out 1.0s forwards}
+.shelf .r2{opacity:0;animation:rise .5s ease-out 1.25s forwards}
+.shelf .r3{opacity:0;animation:rise .5s ease-out 1.5s forwards}
+.shelf .slot{opacity:0;animation:rise .6s ease-out 1.8s forwards}
+@media (prefers-reduced-motion:reduce){
+  .shelf *{animation:none!important}
+  .shelf .frame,.shelf .plank{stroke-dashoffset:0!important}
+  .shelf .row,.shelf .slot{opacity:1!important;transform:none!important}
 }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-  font-size: 17px;
-}
-
-.wrap {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  color: var(--glow);
-}
-
-a:hover {
-  color: var(--accent);
-}
-
-h1, h2, h3 {
-  color: var(--text);
-  line-height: 1.3;
-}
-
-p {
-  color: var(--text);
-}
-
-/* Header */
-
-.site-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 48px 0 32px;
-  text-align: center;
-}
-
-.site-header .brand {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: .35em;
-  text-transform: uppercase;
-  margin: 0 0 12px;
-  padding-left: .35em;
-}
-
-.site-header .tagline {
-  color: var(--muted);
-  font-style: italic;
-  margin: 0 0 20px;
-}
-
-.lang-switch {
-  font-size: 14px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-.lang-switch a {
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 4px 12px;
-  border-radius: 4px;
-}
-
-.lang-switch a:hover {
-  border-color: var(--accent);
-}
-
-/* Main sections */
-
-main {
-  padding: 48px 0 64px;
-}
-
-section {
-  margin-bottom: 56px;
-}
-
-section:last-child {
-  margin-bottom: 0;
-}
-
-.intro p {
-  font-size: 19px;
-  color: var(--text);
-}
-
-.catalog h2,
-.newsletter h2 {
-  font-size: 22px;
-  margin-bottom: 24px;
-}
-
-/* Catalog cards */
-
-.card {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  align-items: center;
-  padding: 24px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.card:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.card .cover {
-  width: 180px;
-  flex: 0 0 180px;
-  border-radius: 4px;
-}
-
-.card .card-body {
-  flex: 1 1 320px;
-  min-width: 240px;
-}
-
-.card .card-body p {
-  margin: 0 0 16px;
-  color: var(--muted);
-}
-
-.card:last-child .card-body p {
-  margin-bottom: 0;
-  font-style: italic;
-}
-
-.btn {
-  display: inline-block;
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 700;
-  text-decoration: none;
-  padding: 10px 22px;
-  border-radius: 4px;
-  letter-spacing: .02em;
-}
-
-.btn:hover {
-  background: var(--glow);
-  color: var(--bg);
-}
-
-/* Newsletter */
-
-.newsletter {
-  background: var(--panel);
-  border: 1px solid var(--glow);
-  border-radius: 8px;
-  padding: 32px;
-}
-
-.newsletter p {
-  color: var(--text);
-}
-
-.newsletter-note {
-  color: var(--muted);
-  font-size: 14px;
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-
-/* Footer */
-
-.site-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 24px 0 48px;
-}
-
-.site-footer p {
-  color: var(--muted);
-  font-size: 14px;
-  text-align: center;
-  margin: 0;
-}
-
-.site-footer a {
-  color: var(--muted);
-  text-decoration: underline;
-}
-
-.site-footer a:hover {
-  color: var(--accent);
-}
-
-/* Simple pages: privacy, 404 */
-
-.simple-page {
-  padding: 64px 0;
-  text-align: center;
-}
-
-.simple-page h1 {
-  font-size: 26px;
-  margin-bottom: 24px;
-}
-
-.simple-page p {
-  color: var(--muted);
-}
-
-.simple-page .back {
-  display: inline-block;
-  margin-top: 24px;
-}
-
-/* Responsive */
-
-@media (max-width: 560px) {
-  .card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .card .cover {
-    width: 100%;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  .card .card-body {
-    width: 100%;
-  }
-
-  .site-header .brand {
-    font-size: 22px;
-    letter-spacing: .25em;
-  }
-}
-
-/* Form newsletter (MailerLite, endpoint nativo senza JS) */
-.ml-form { display: flex; gap: .6rem; flex-wrap: wrap; margin: 1.1rem 0 .6rem; }
-.ml-form input[type="email"] {
-  flex: 1 1 220px; padding: .65rem .8rem; font-size: 1rem;
-  background: var(--bg); color: var(--text);
-  border: 1px solid var(--muted); border-radius: 6px;
-}
-.ml-form input[type="email"]:focus { outline: 2px solid var(--glow); border-color: var(--glow); }
-.ml-form button {
-  flex: 0 0 auto; padding: .65rem 1.2rem; font-size: 1rem; font-weight: 700;
-  background: var(--accent); color: #14100a; border: none; border-radius: 6px; cursor: pointer;
-}
-.ml-form button:hover { filter: brightness(1.1); }
-
-/* Logo nel header (bianco su trasparente, dalle copertine) */
-.brand-logo { width: min(320px, 70vw); height: auto; display: inline-block; }

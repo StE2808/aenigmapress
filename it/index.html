@@ -10,66 +10,147 @@
 </head>
 <body>
 
-<header class="site-header">
-  <div class="wrap">
-    <div class="brand"><img src="../assets/img/logo.png" alt="Aenigma Press" class="brand-logo"></div>
-    <p class="tagline">Puzzle logici fatti con cura</p>
-    <nav class="lang-switch">
-      <a href="/">EN</a>
-    </nav>
-  </div>
+<header class="site-head" id="top">
+  <a class="brand" href="#top"><img src="../assets/img/logo.png" alt="Aenigma Press"></a>
+  <nav class="nav" aria-label="Primary">
+    <a href="#collection">La collana</a>
+    <a href="#subscribe">Newsletter</a>
+  </nav>
+  <a class="head-lang" href="/">EN</a>
 </header>
+<div class="head-rule"></div>
 
-<main class="wrap">
-
-  <section class="intro">
-    <p>Aenigma Press è una casa editrice indipendente di libri di Kakuro. Ogni puzzle è generato e verificato: una sola soluzione, raggiungibile con la pura logica. Mai tirare a indovinare.</p>
-  </section>
-
-  <section class="catalog">
-    <h2>La collana Kakuro</h2>
-
-    <article class="card">
-      <img class="cover" src="../assets/img/kakuro-vol1.png" alt="Copertina Kakuro Volume 1">
-      <div class="card-body">
-        <p>Volume 1. 120 puzzle logici a caratteri grandi, dal principiante all'esperto. Griglie dal 4x4 al 9x9.</p>
-        <a class="btn" href="https://www.amazon.it/dp/B0H81H7VZJ">Compra su Amazon</a>
+<main>
+<section class="lede">
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Indipendente &middot; Libri di puzzle</p>
+      <div class="shelf-wrap">
+        <svg class="shelf" viewBox="0 0 340 258" width="100%" role="img" aria-label="Una libreria in wireframe che si riempie di libri, uno spazio tratteggiato attende il Volume 3.">
+          <defs>
+            <pattern id="hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width="1" opacity=".22"/>
+            </pattern>
+          </defs>
+          <rect class="frame" x="8" y="8" width="324" height="242" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <line class="plank p1" x1="8" y1="88" x2="332" y2="88" stroke="currentColor" stroke-width="1.4"/>
+          <line class="plank p2" x1="8" y1="168" x2="332" y2="168" stroke="currentColor" stroke-width="1.4"/>
+          <g class="row r1" stroke="currentColor" stroke-width="1">
+            <rect x="22" y="36" width="12" height="52" fill="url(#hatch)"/>
+            <rect x="37" y="44" width="9" height="44" fill="none"/>
+            <rect x="49" y="30" width="15" height="58" fill="url(#hatch)"/>
+            <rect x="67" y="40" width="10" height="48" fill="none"/>
+            <rect x="80" y="27" width="13" height="61" fill="url(#hatch)"/>
+            <rect x="96" y="43" width="11" height="45" fill="none"/>
+            <rect x="112" y="38" width="10" height="50" fill="none" transform="rotate(-9 112 88)"/>
+            <rect x="132" y="32" width="14" height="56" fill="url(#hatch)"/>
+            <rect x="149" y="41" width="10" height="47" fill="none"/>
+            <rect x="162" y="28" width="12" height="60" fill="url(#hatch)"/>
+            <rect x="177" y="46" width="9" height="42" fill="none"/>
+            <rect x="189" y="33" width="15" height="55" fill="url(#hatch)"/>
+            <rect x="207" y="39" width="11" height="49" fill="none"/>
+            <rect x="221" y="25" width="13" height="63" fill="url(#hatch)"/>
+            <rect x="237" y="42" width="10" height="46" fill="none"/>
+            <rect x="250" y="30" width="12" height="58" fill="url(#hatch)"/>
+            <rect x="265" y="37" width="14" height="51" fill="none"/>
+            <rect x="282" y="44" width="9" height="44" fill="url(#hatch)"/>
+            <rect x="294" y="31" width="12" height="57" fill="none"/>
+            <rect x="309" y="40" width="11" height="48" fill="url(#hatch)"/>
+          </g>
+          <g class="row r2" stroke="currentColor">
+            <g stroke-width="1.1">
+              <rect x="26" y="94" width="26" height="74" fill="url(#hatch)"/>
+              <rect x="26" y="94" width="26" height="7" fill="currentColor" opacity=".45" stroke="none"/>
+              <text x="39" y="136" text-anchor="middle" font-size="15" fill="currentColor" opacity=".6" font-family="Georgia,serif" stroke="none">I</text>
+              <rect x="58" y="94" width="26" height="74" fill="url(#hatch)"/>
+              <rect x="58" y="94" width="26" height="7" fill="currentColor" opacity=".45" stroke="none"/>
+              <text x="71" y="136" text-anchor="middle" font-size="15" fill="currentColor" opacity=".6" font-family="Georgia,serif" stroke="none">II</text>
+            </g>
+            <g stroke-width="1">
+              <rect x="126" y="118" width="11" height="50" fill="none"/>
+              <rect x="140" y="110" width="13" height="58" fill="url(#hatch)"/>
+              <rect x="156" y="123" width="9" height="45" fill="none"/>
+              <rect x="168" y="106" width="14" height="62" fill="url(#hatch)"/>
+              <rect x="185" y="120" width="10" height="48" fill="none"/>
+              <rect x="198" y="113" width="12" height="55" fill="url(#hatch)"/>
+              <rect x="216" y="116" width="10" height="52" fill="none" transform="rotate(7 226 168)"/>
+              <rect x="233" y="108" width="13" height="60" fill="url(#hatch)"/>
+              <rect x="249" y="121" width="11" height="47" fill="none"/>
+            </g>
+          </g>
+          <g class="row r3" stroke="currentColor" stroke-width="1">
+            <rect x="22" y="187" width="13" height="55" fill="url(#hatch)"/>
+            <rect x="38" y="196" width="10" height="46" fill="none"/>
+            <rect x="51" y="182" width="14" height="60" fill="url(#hatch)"/>
+            <rect x="68" y="193" width="11" height="49" fill="none"/>
+            <rect x="82" y="185" width="12" height="57" fill="url(#hatch)"/>
+            <rect x="98" y="192" width="10" height="50" fill="none" transform="rotate(-10 98 242)"/>
+            <rect x="284" y="233" width="40" height="9" fill="url(#hatch)"/>
+            <rect x="290" y="224" width="34" height="9" fill="none"/>
+          </g>
+          <g class="slot">
+            <rect x="90" y="94" width="26" height="74" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 5" opacity=".7"/>
+            <text x="103" y="138" text-anchor="middle" font-size="22" fill="currentColor" opacity=".38" font-family="Georgia,serif">3</text>
+          </g>
+        </svg>
       </div>
-    </article>
+      <p class="tagline">Una casa editrice indipendente, per il piacere quieto dei numeri.</p>
+    </div>
 
-    <article class="card">
-      <img class="cover" src="../assets/img/kakuro-vol2.png" alt="Copertina Kakuro Volume 2">
-      <div class="card-body">
-        <p>Volume 2. 120 puzzle inediti, dal principiante all'esperto.</p>
-        <a class="btn" href="https://www.amazon.it/dp/B0H7T2SH2H">Compra su Amazon</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="card-body">
-        <p>Volume 3, Advanced. 120 puzzle da difficile a esperto, griglie fino a 11x11. In arrivo.</p>
-      </div>
-    </article>
-
-  </section>
-
-  <section class="newsletter">
-    <h2>Ricevi 10 Kakuro esclusivi, gratis</h2>
-    <p>Iscriviti alla newsletter di Aenigma Press: saprai per primo quando esce un nuovo volume. Come regalo di benvenuto ricevi 10 puzzle esclusivi, assenti da ogni volume, in PDF stampabile.</p>
-    <form class="ml-form" action="https://assets.mailerlite.com/jsonp/2497131/forms/192421754859160744/subscribe" method="post" target="_blank">
-        <input type="email" name="fields[email]" required placeholder="La tua email" aria-label="email" autocomplete="email">
+    <div class="card" id="subscribe">
+      <p class="eyebrow">Un regalo per cominciare</p>
+      <h2>Dieci Kakuro inediti, gratis.</h2>
+      <p>Lascia la tua email: ti mandiamo il link di conferma, poi il PDF e l'annuncio di ogni nuovo volume.</p>
+      <form class="form" action="https://assets.mailerlite.com/jsonp/2497131/forms/192421754859160744/subscribe" method="post" target="_blank">
+        <input class="field" type="email" name="fields[email]" required placeholder="La tua email" aria-label="email" autocomplete="email">
         <input type="hidden" name="ml-submit" value="1">
         <input type="hidden" name="anticsrf" value="true">
-        <button type="submit">Voglio i puzzle gratis</button>
+        <button class="btn-primary" type="submit">Inviami il PDF</button>
       </form>
-    <p class="newsletter-note">Niente spam: al massimo una o due email al mese. Ti cancelli quando vuoi con un click.</p>
-  </section>
+      <p class="fine">Niente spam: al massimo una o due email al mese. Ti cancelli quando vuoi con un click.</p>
+    </div>
+  </div>
+</section>
 
+<section class="catalogue" id="collection">
+  <div class="wrap">
+    <div class="cat-head">
+      <p class="eyebrow">Due volumi, un terzo in preparazione</p>
+      <h2>La Collana</h2>
+    </div>
+    <div class="cat-grid">
+      <article class="book">
+        <img class="cover" src="../assets/img/kakuro-vol1.png" alt="Copertina Kakuro Volume 1">
+        <h3>Volume I</h3>
+        <p class="desc">120 puzzle logici a caratteri grandi, dal principiante all'esperto. Griglie dal 4x4 al 9x9.</p>
+        <a class="btn-ghost" href="https://www.amazon.it/dp/B0H81H7VZJ">Compra su Amazon</a>
+      </article>
+      <article class="book">
+        <img class="cover" src="../assets/img/kakuro-vol2.png" alt="Copertina Kakuro Volume 2">
+        <h3>Volume II</h3>
+        <p class="desc">120 puzzle inediti, dal principiante all'esperto.</p>
+        <a class="btn-ghost" href="https://www.amazon.it/dp/B0H7T2SH2H">Compra su Amazon</a>
+      </article>
+      <article class="book book--soon">
+        <div class="cover--empty"><b>III</b></div>
+        <div class="soon-body">
+          <h3>Volume III</h3>
+          <p class="soon-line">Advanced: 120 puzzle da difficile a esperto, griglie fino a 11x11. In preparazione. <a href="#subscribe">Prenota la tua copia qui sopra.</a></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <p>(c) 2026 Aenigma Press &middot; <a href="/it/privacy.html">Privacy</a> &middot; contact@aenigmapress.com</p>
+<footer class="site-foot">
+  <a class="foot-mail" href="mailto:contact@aenigmapress.com">contact@aenigmapress.com</a>
+  <div class="foot-links">
+    <span>&copy; 2026 Aenigma Press</span>
+    <span class="sep">&middot;</span>
+    <a href="/it/privacy.html">Privacy</a>
+    <span class="sep">&middot;</span>
+    <span class="lang"><a href="/">EN</a> / <a href="/it/" aria-current="true">IT</a></span>
   </div>
 </footer>
 
