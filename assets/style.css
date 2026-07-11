@@ -136,12 +136,12 @@ h1 em{font-style:italic;color:var(--gold)}
 .book--soon{grid-column:1/-1}
 @media(min-width:880px){.book--soon{grid-column:auto}}
 
+/* ---------- alba: transizione notte -> giorno ---------- */
+.dawn{height:170px;background:linear-gradient(var(--night) 0%,#101b30 36%,#33415f 62%,#a5977f 85%,var(--paper) 100%)}
+
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important}
   .copy,.vx,.vh,.glint2,.tag,.tagrule{opacity:1;transform:none}
   .st,.gl,.pulse{opacity:.7}
   .seg{stroke-dashoffset:0!important}
 }
-
-/* ---------- 2. dawn (placeholder, definitivo nel Task 3) ---------- */
-.dawn{height:170px;background:linear-gradient(var(--night) 0%,#101b30 36%,#33415f 62%,#a5977f 85%,var(--paper) 100%)}
