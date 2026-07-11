@@ -6,3 +6,4 @@ credentials.yaml
 .DS_Store
 docs/brief-*.md
 prototipo/
+.superpowers/
