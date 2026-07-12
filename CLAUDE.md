@@ -18,11 +18,10 @@ StE2808/aenigmapress, branch main = produzione: ogni push pubblica).
 
 ## Design
 
-- LIVE ora: design "Galleria" (9 lug 2026, commit 3795a46 + 3f111be):
-  fondo blu notte, oro come accento, hero con libreria wireframe SVG.
-- **APPROVATO l'11 lug 2026 il redesign "Dalla Notte al Giorno"**, in
-  implementazione su branch `design-notte-giorno` (merge solo dopo
-  checkpoint visivo di Stefano). Spec completa:
+- **LIVE ora: design "Dalla Notte al Giorno"** (12 lug 2026, merge
+  35849a7 su main dopo checkpoint visivo e ratifica copy di Stefano).
+  Il design precedente "Galleria" (9 lug, 3795a46) e' superato.
+  Spec completa:
   `~/Desktop/Scrittura e Libri/Libri ludici/docs/superpowers/specs/2026-07-11-aenigmapress-notte-giorno-design.md`
   In sintesi, racconto verticale in tre atti:
   1. Notte (hero): cielo stellato animato (twinkle + 5 pulsar con 3
@@ -83,7 +82,7 @@ Il `.gitignore` esclude anche `docs/brief-*.md` e `prototipo/`.
 - Copy: mai promettere consegna istantanea del PDF (il flusso e' double
   opt-in: email di conferma, poi email di benvenuto col PDF). Modifiche
   di copy solo con ok esplicito di Stefano (il copy del redesign e'
-  ancora BOZZA da ratificare).
+  stato RATIFICATO il 12 lug 2026 col checkpoint pre-merge).
 - Push su main = pubblicazione: per lavori non banali usare un branch e
   chiedere checkpoint visivo a Stefano prima del merge.
 - Commit in inglese convenzionale, trailer
@@ -95,23 +94,24 @@ Il `.gitignore` esclude anche `docs/brief-*.md` e `prototipo/`.
 - `privacy.html` / `it/privacy.html`: privacy essenziale.
 - `404.html`, `CNAME`, `assets/style.css` (tokens in testa),
   `assets/img/` (logo.png bianco trasparente, copertine kakuro-vol*.png),
-  `assets/fonts/` (arrivera' col redesign: Playfair Display WOFF2).
+  `assets/fonts/` (Playfair Display 400 + italic WOFF2, 43 KB totali).
 - `docs/` (gitignored i brief) e `prototipo/` (gitignored): materiali
   di design; `prototipo/hero-finale2.html` = prototipo approvato.
 - Il PDF regalo NON sta nel repo: vivra' su MailerLite (file manager),
   link solo nell'email di benvenuto.
 
-## Stato (11 lug 2026)
+## Stato (12 lug 2026)
 
-- LIVE con design Galleria (commit 3795a46 + fix copy 3f111be).
-- Redesign "Dalla Notte al Giorno" APPROVATO (spec 11 lug), piano in
-  esecuzione subagent-driven su branch `design-notte-giorno`: lo stato
-  vero dell'avanzamento sono le checkbox del piano e i commit del
-  branch. Task 8 del piano (checkpoint visivo + ratifica copy con
-  Stefano) e' BLOCCANTE prima del merge.
-- PENDENTI (non legati al redesign): certificato HTTPS GitHub in
-  emissione (poi enforce con
-  `gh api -X PUT repos/StE2808/aenigmapress/pages -f cname=aenigmapress.com -F https_enforced=true`);
+- LIVE con design "Dalla Notte al Giorno" (merge 35849a7, 12 lug 2026):
+  piano 2026-07-11 completato, checkpoint visivo superato e copy
+  ratificato da Stefano. Lighthouse al QA: perf 100 / a11y 96 su EN e
+  IT. Il branch `design-notte-giorno` resta nel repo come storico.
+- Nota a11y accettata: il link lingua attiva nel footer (bronzo su
+  carta) ha contrasto 4.11:1, poco sotto AA; ok di Stefano al checkpoint.
+- PENDENTI (non legati al redesign): certificato HTTPS GitHub ANCORA
+  non emesso al 12 lug (cert_state null; se resta bloccato, provare a
+  rimuovere e rimettere il custom domain in Pages), poi enforce con
+  `gh api -X PUT repos/StE2808/aenigmapress/pages -f cname=aenigmapress.com -F https_enforced=true`;
   PDF regalo (10 kakuro inediti, anti-doppioni vs Vol 1-3); automazione
   di benvenuto MailerLite; test end-to-end iscrizione; QR nel Vol 3;
   Email Routing contact@aenigmapress.com (opzionale).
