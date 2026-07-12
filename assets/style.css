@@ -184,7 +184,10 @@ h1 em{font-style:italic;color:var(--gold)}
   color:var(--bronze);padding:10px 18px;border-radius:2px;font:600 13px var(--sans)}
 .back:hover{background:rgba(138,100,32,.1);border-color:var(--bronze);color:var(--ink)}
 
+.day :focus-visible,.site-foot :focus-visible{outline-color:var(--bronze)}
+
 @media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
   *{animation:none!important}
   .copy,.vx,.vh,.glint2,.tag,.tagrule{opacity:1;transform:none}
   .st,.gl,.pulse{opacity:.7}
