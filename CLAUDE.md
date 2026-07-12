@@ -108,10 +108,11 @@ Il `.gitignore` esclude anche `docs/brief-*.md` e `prototipo/`.
   IT. Il branch `design-notte-giorno` resta nel repo come storico.
 - Nota a11y accettata: il link lingua attiva nel footer (bronzo su
   carta) ha contrasto 4.11:1, poco sotto AA; ok di Stefano al checkpoint.
-- PENDENTI (non legati al redesign): certificato HTTPS GitHub ANCORA
-  non emesso al 12 lug (cert_state null; se resta bloccato, provare a
-  rimuovere e rimettere il custom domain in Pages), poi enforce con
-  `gh api -X PUT repos/StE2808/aenigmapress/pages -f cname=aenigmapress.com -F https_enforced=true`;
-  PDF regalo (10 kakuro inediti, anti-doppioni vs Vol 1-3); automazione
-  di benvenuto MailerLite; test end-to-end iscrizione; QR nel Vol 3;
-  Email Routing contact@aenigmapress.com (opzionale).
+- HTTPS ATTIVO (12 lug 2026): certificato emesso dopo reset del custom
+  domain (rimozione + riaggiunta via API Pages, che ha sbloccato
+  l'emissione ferma da 4 giorni), enforce HTTPS on. Cert Let's Encrypt
+  per apex + www, scadenza 10 ott 2026, rinnovo automatico GitHub;
+  http redirige 301 su https, www redirige sull'apex.
+- PENDENTI: PDF regalo (10 kakuro inediti, anti-doppioni vs Vol 1-3);
+  automazione di benvenuto MailerLite; test end-to-end iscrizione;
+  QR nel Vol 3; Email Routing contact@aenigmapress.com (opzionale).
