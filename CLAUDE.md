@@ -18,24 +18,35 @@ StE2808/aenigmapress, branch main = produzione: ogni push pubblica).
 
 ## Design
 
-- **LIVE ora: design "Dalla Notte al Giorno"** (12 lug 2026, merge
-  35849a7 su main dopo checkpoint visivo e ratifica copy di Stefano).
-  Il design precedente "Galleria" (9 lug, 3795a46) e' superato.
-  Spec completa:
+- **LIVE ora: design "Dalla Notte al Giorno" con hero "Planetario"**
+  (13 lug 2026, merge del branch `hero-planetario` su main dopo
+  checkpoint visivo di Stefano). L'impianto a tre atti resta quello
+  approvato il 12 lug (merge 35849a7); il 13 lug l'hero e' stato
+  arricchito e reso piu' vivo (variante "Planetario", scelta da Stefano
+  fra due prototipi: "profondo" sobrio e "planetario" spettacolare).
+  Il design "Galleria" (9 lug, 3795a46) resta superato.
+  Spec di base (tre atti):
   `~/Desktop/Scrittura e Libri/Libri ludici/docs/superpowers/specs/2026-07-11-aenigmapress-notte-giorno-design.md`
-  In sintesi, racconto verticale in tre atti:
-  1. Notte (hero): cielo stellato animato (twinkle + 5 pulsar con 3
-     battiti al load), costellazione "AEnigma" (legatura AE tracciata
-     da 7 stelle unite da linee oro, etichetta da atlante). Niente
-     newsletter nell'hero, CTA ancora a #collection.
+  Racconto verticale in tre atti:
+  1. Notte (hero "Planetario"): cielo a TRE piani in parallasse
+     (far/mid/near) mossi da mouse e scroll, nebulosa blu che deriva,
+     velo galattico diagonale, rotazione celeste lentissima del campo
+     lontano attorno alla costellazione (giro in 600s, solo desktop
+     pointer fine), meteore e brillamenti casuali generati via JS,
+     orizzonte che respira, vignettatura. Al centro la costellazione
+     "AEnigma" (legatura AE tracciata da 7 stelle unite da linee oro,
+     etichetta da atlante) che si disegna al load e ha un lieve tilt 3D.
+     Header sospeso trasparente sul cielo (wrapper `.site-top`
+     absolute). Niente newsletter nell'hero, CTA a #collection.
   2. Alba: fascia gradiente di transizione.
   3. Giorno (carta): Collection (copertine + Buy on Amazon + slot III
      tratteggiato) e newsletter (box con doppia cornice da frontespizio,
      costellazione stampata in bronzo accanto) su fondo carta avorio.
   Palette doppia: notte/oro (`#080d16`/`#d9a441`) e carta/bronzo
   (`#f2ecdd`/`#8a6420`). Tipografia: Playfair Display WOFF2 locale
-  subsettato (budget 120 KB), fallback Didot/Bodoni 72/Georgia.
-  Prototipo di riferimento: `prototipo/hero-finale2.html` (gitignored).
+  subsettato, fallback Didot/Bodoni 72/Georgia.
+  Prototipo di riferimento hero: `prototipo/hero-planetario.html`
+  (gitignored); il precedente `hero-finale2.html` e' superato.
 - Le due lingue sono generate speculari (stessi tag nello stesso
   ordine): ogni modifica strutturale va fatta su ENTRAMBE le pagine.
 - Mockup e prototipi in `prototipo/` (gitignored), brief in
@@ -43,9 +54,15 @@ StE2808/aenigmapress, branch main = produzione: ogni push pubblica).
 
 ## Stack
 
-- HTML e CSS puri, statici, zero build, zero JS. Niente framework.
-- VINCOLO DURO: zero richieste esterne (no CDN, no Google Fonts, no
-  analytics, no cookie). Font = file WOFF2 locali in `assets/fonts/`.
+- HTML e CSS puri, statici, zero build. Niente framework.
+- JS: dal 13 lug 2026 e' ammesso un SOLO file JS locale
+  `assets/hero.js` (~90 righe), che anima l'hero (parallasse mouse+
+  scroll, meteore/brillamenti a intervalli, IntersectionObserver che
+  mette in pausa fuori viewport, spegnimento se scatta reduced-motion).
+  E' progressive enhancement: senza JS l'hero resta statico ma leggibile.
+- VINCOLO DURO (invariato): zero richieste esterne (no CDN, no Google
+  Fonts, no analytics, no cookie). Il JS e' locale e inline-friendly,
+  non viola il vincolo. Font = file WOFF2 locali in `assets/fonts/`.
   Uniche URL esterne: form MailerLite (POST) e link Amazon.
 - Hosting: GitHub Pages, dominio aenigmapress.com su Cloudflare
   (DNS: 4 A apex + CNAME www, DNS only).
@@ -59,9 +76,7 @@ StE2808/aenigmapress, branch main = produzione: ogni push pubblica).
 
 - Spec design corrente (approvata): `.../specs/2026-07-11-aenigmapress-notte-giorno-design.md`
 - Spec precedente (Galleria, superata): `.../specs/2026-07-08-aenigmapress-landing-design.md`
-- Piano redesign corrente: `.../plans/2026-07-11-aenigmapress-notte-giorno.md`
-  (checkbox = avanzamento; branch `design-notte-giorno`)
-- Piano precedente (Galleria): `.../plans/2026-07-08-aenigmapress-landing.md`
+- Piano redesign: `.../plans/2026-07-11-aenigmapress-notte-giorno.md`
 - Ledger di avanzamento (stato vero del progetto):
   `.../docs/superpowers/sdd-progress-aenigmapress.md`
 - Base path: `~/Desktop/Scrittura e Libri/Libri ludici/docs/superpowers/`
@@ -82,7 +97,13 @@ Il `.gitignore` esclude anche `docs/brief-*.md` e `prototipo/`.
 - Copy: mai promettere consegna istantanea del PDF (il flusso e' double
   opt-in: email di conferma, poi email di benvenuto col PDF). Modifiche
   di copy solo con ok esplicito di Stefano (il copy del redesign e'
-  stato RATIFICATO il 12 lug 2026 col checkpoint pre-merge).
+  stato RATIFICATO il 12 lug 2026; l'hero Planetario NON ha cambiato
+  copy, solo animazione e layout).
+- Mobile: le griglie dell'hero usano `minmax(0,1fr)` sulle colonne e
+  `min-width:0` sugli item per evitare il grid blowout (l'SVG della
+  costellazione gonfiava la colonna oltre il viewport). Il `<br>` del
+  titolo e' `<br class="brk">`, nascosto sotto 880px (lo spazio sta
+  prima del br), cosi' il titolo va a capo da solo su smartphone.
 - Push su main = pubblicazione: per lavori non banali usare un branch e
   chiedere checkpoint visivo a Stefano prima del merge.
 - Commit in inglese convenzionale, trailer
@@ -93,26 +114,35 @@ Il `.gitignore` esclude anche `docs/brief-*.md` e `prototipo/`.
 - `index.html` (EN, root) / `it/index.html` (IT): home speculari.
 - `privacy.html` / `it/privacy.html`: privacy essenziale.
 - `404.html`, `CNAME`, `assets/style.css` (tokens in testa),
+  `assets/hero.js` (animazione hero Planetario, caricato con `defer`
+  da entrambe le home; privacy/404 non lo usano),
   `assets/img/` (logo.png bianco trasparente, copertine kakuro-vol*.png),
   `assets/fonts/` (Playfair Display 400 + italic WOFF2, 43 KB totali).
 - `docs/` (gitignored i brief) e `prototipo/` (gitignored): materiali
-  di design; `prototipo/hero-finale2.html` = prototipo approvato.
+  di design; `prototipo/hero-planetario.html` = prototipo hero approvato.
 - Il PDF regalo NON sta nel repo: vivra' su MailerLite (file manager),
   link solo nell'email di benvenuto.
 
-## Stato (12 lug 2026)
+## Stato (13 lug 2026)
 
-- LIVE con design "Dalla Notte al Giorno" (merge 35849a7, 12 lug 2026):
-  piano 2026-07-11 completato, checkpoint visivo superato e copy
-  ratificato da Stefano. Lighthouse al QA: perf 100 / a11y 96 su EN e
-  IT. Il branch `design-notte-giorno` resta nel repo come storico.
-- Nota a11y accettata: il link lingua attiva nel footer (bronzo su
-  carta) ha contrasto 4.11:1, poco sotto AA; ok di Stefano al checkpoint.
-- HTTPS ATTIVO (12 lug 2026): certificato emesso dopo reset del custom
-  domain (rimozione + riaggiunta via API Pages, che ha sbloccato
-  l'emissione ferma da 4 giorni), enforce HTTPS on. Cert Let's Encrypt
-  per apex + www, scadenza 10 ott 2026, rinnovo automatico GitHub;
-  http redirige 301 su https, www redirige sull'apex.
+- LIVE con hero "Planetario" (merge branch `hero-planetario` su main,
+  13 lug 2026), dopo checkpoint visivo di Stefano. Copy invariato e gia'
+  ratificato. La costellazione AE nell'hero e' stata ingrandita
+  (`.sky` max-width 600px, colonna desktop `.85/1.15fr`); su desktop il
+  titolo va su 4 righe, accettato "per ora" da Stefano (da ribilanciare
+  eventualmente in seguito).
+- Fix mobile (13 lug): risolto un overflow orizzontale che tagliava
+  titolo/sottotitolo/costellazione su smartphone (grid blowout), via
+  `minmax(0,1fr)` + `min-width:0` e `<br class="brk">` responsivo.
+  Verificato con sonda JS: scrollWidth - innerWidth = 0 a 320/360/390px
+  su EN e IT.
+- Note dal design "Notte al Giorno" (12 lug) ancora valide: Lighthouse
+  perf 100 / a11y 96 (da rifare dopo Planetario); link lingua attiva nel
+  footer a contrasto 4.11:1, ok di Stefano.
+- HTTPS ATTIVO (dal 12 lug 2026): Let's Encrypt apex + www, scadenza
+  10 ott 2026, rinnovo automatico GitHub; http -> 301 https, www -> apex.
 - PENDENTI: PDF regalo (10 kakuro inediti, anti-doppioni vs Vol 1-3);
   automazione di benvenuto MailerLite; test end-to-end iscrizione;
-  QR nel Vol 3; Email Routing contact@aenigmapress.com (opzionale).
+  QR nel Vol 3; Email Routing contact@aenigmapress.com (opzionale);
+  ri-QA Lighthouse sull'hero Planetario; eventuale ribilanciamento del
+  titolo hero su desktop (4 righe).
