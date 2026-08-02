@@ -66,15 +66,17 @@ StE2808/aenigmapress, branch main = produzione: ogni push pubblica).
   Uniche URL esterne: form MailerLite (POST) e link Amazon.
 - Hosting: GitHub Pages, dominio aenigmapress.com su Cloudflare
   (DNS: 4 A apex + CNAME www, DNS only).
-- Newsletter: MailerLite, double opt-in ATTIVO. Il form e' stato RIMOSSO
-  temporaneamente dalle pagine il 2 ago 2026 (commit 0bfff58: via la
-  sezione #subscribe e il link "Prenota la tua copia" nella card Vol
-  III, EN e IT) perche' la catena di benvenuto non e' pronta. Si
-  ripristina con `git revert 0bfff58` quando PDF + automazione + test
-  end-to-end saranno a posto. Il form era nativo POST verso
-  assets.mailerlite.com/jsonp/2497131/forms/192421754859160744/subscribe
-  (campi fields[email], ml-submit, anticsrf): al ripristino non
-  cambiarne la sostanza.
+- Newsletter: form RIMOSSO temporaneamente dalle pagine il 2 ago 2026
+  (commit 0bfff58: via la sezione #subscribe e il link "Prenota la tua
+  copia" nella card Vol III, EN e IT) perche' la catena di benvenuto
+  non e' pronta.
+  ATTENZIONE AL RIPRISTINO: l'account MailerLite esistente (endpoint
+  2497131 / form 192421754859160744 nel commit revertato) e' stato
+  DESTINATO a Rosso di Sera blog (decisione di Stefano, 2 ago 2026).
+  Per riattivare la newsletter Aenigma Press: creare un account
+  MailerLite NUOVO, nuovo gruppo e form nativo POST (double opt-in ON),
+  poi `git revert 0bfff58` E sostituzione dell'endpoint del form in
+  entrambe le home. Mai riusare l'endpoint vecchio.
 - Link Amazon per marketplace: EN -> amazon.com (Vol1 B0H7ZVGM59,
   Vol2 B0H7T36LHT), IT -> amazon.it (Vol1 B0H81H7VZJ, Vol2 B0H7T2SH2H).
 
@@ -91,6 +93,8 @@ StE2808/aenigmapress, branch main = produzione: ogni push pubblica).
 
 Token MailerLite e Cloudflare SOLO in `~/.secrets/credentials.yaml`
 (sezioni `mailerlite` e `cloudflare`). Mai nel repo, che e' PUBBLICO.
+NOTA: il token `mailerlite` attuale appartiene all'account destinato a
+Rosso di Sera; quello nuovo di Aenigma Press avra' una sezione sua.
 Il `.gitignore` esclude anche `docs/brief-*.md` e `prototipo/`.
 
 ## Regole dure
