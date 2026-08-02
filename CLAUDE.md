@@ -66,9 +66,15 @@ StE2808/aenigmapress, branch main = produzione: ogni push pubblica).
   Uniche URL esterne: form MailerLite (POST) e link Amazon.
 - Hosting: GitHub Pages, dominio aenigmapress.com su Cloudflare
   (DNS: 4 A apex + CNAME www, DNS only).
-- Newsletter: MailerLite, double opt-in ATTIVO. Form nativo POST verso
+- Newsletter: MailerLite, double opt-in ATTIVO. Il form e' stato RIMOSSO
+  temporaneamente dalle pagine il 2 ago 2026 (commit 0bfff58: via la
+  sezione #subscribe e il link "Prenota la tua copia" nella card Vol
+  III, EN e IT) perche' la catena di benvenuto non e' pronta. Si
+  ripristina con `git revert 0bfff58` quando PDF + automazione + test
+  end-to-end saranno a posto. Il form era nativo POST verso
   assets.mailerlite.com/jsonp/2497131/forms/192421754859160744/subscribe
-  (campi fields[email], ml-submit, anticsrf): non cambiarne la sostanza.
+  (campi fields[email], ml-submit, anticsrf): al ripristino non
+  cambiarne la sostanza.
 - Link Amazon per marketplace: EN -> amazon.com (Vol1 B0H7ZVGM59,
   Vol2 B0H7T36LHT), IT -> amazon.it (Vol1 B0H81H7VZJ, Vol2 B0H7T2SH2H).
 
@@ -123,7 +129,27 @@ Il `.gitignore` esclude anche `docs/brief-*.md` e `prototipo/`.
 - Il PDF regalo NON sta nel repo: vivra' su MailerLite (file manager),
   link solo nell'email di benvenuto.
 
-## Stato (13 lug 2026)
+## Stato (2 ago 2026)
+
+- Form newsletter TOLTO dal sito (2 ago 2026, commit 0bfff58, richiesta
+  di Stefano): meglio zero iscritti che iscritti confermati senza PDF.
+  Meta description invariata (cita ancora la newsletter, scelta ok
+  perche' la rimozione e' temporanea).
+- Verificato via API (2 ago): 0 iscritti (anche unconfirmed), NESSUNA
+  automazione su MailerLite. Nessuna casella @aenigmapress.com: DNS
+  senza MX/SPF/DKIM, e il mittente MailerLite e' l'email personale
+  dell'account (rischio spam per le regole DMARC di Gmail/Yahoo).
+  Sistemazione decisa ma non eseguita: Email Routing Cloudflare per
+  contact@ + autenticazione dominio in MailerLite prima del test
+  end-to-end.
+- Email contact@ RIMOSSA da tutto il sito (2 ago 2026, commit bcf5d18,
+  richiesta di Stefano: un mailto in chiaro attira harvester di spam):
+  via dal footer delle due home (ora centrato, justify-content:center
+  sopra 880px) e dalla riga "Contatto:" delle due privacy. Quando si
+  attivera' l'Email Routing, reintrodurre un contatto in forma protetta
+  (non plaintext nel markup).
+
+Stato precedente (13 lug 2026):
 
 - LIVE con hero "Planetario" (merge branch `hero-planetario` su main,
   13 lug 2026), dopo checkpoint visivo di Stefano. Copy invariato e gia'
