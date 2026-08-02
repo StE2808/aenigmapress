@@ -271,7 +271,7 @@ h1 .brk{display:none}
 .site-foot a{color:var(--ink-soft);text-decoration:underline;text-underline-offset:2px}
 .site-foot a:hover{color:var(--ink)}
 .site-foot .lang a[aria-current="true"]{color:var(--bronze);font-weight:600}
-@media(min-width:880px){.site-foot{flex-direction:row;justify-content:space-between;padding:26px 48px}}
+@media(min-width:880px){.site-foot{flex-direction:row;justify-content:center;padding:26px 48px}}
 
 /* ---------- pagine semplici (privacy, 404): carta ---------- */
 .simple-page{max-width:620px;margin:0 auto;padding:64px 24px 96px}
